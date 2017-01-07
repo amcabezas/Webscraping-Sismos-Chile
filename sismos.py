@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
+# -*- coding: latin-1 -*-
 from bs4 import BeautifulSoup
 import requests
 url = 'http://www.sismologia.cl/links/tabla.html'
@@ -17,7 +17,7 @@ for row in tabla.findAll("tr", limit=4):
         for fec in a:
             print 'Fecha:',fec.getText()
         for lug in b:
-            print 'Lugar',lug.getText()
+            print 'Lugar',lug.getText().encode('latin-1')
         for mag in c:
             print 'Magnitud',mag.getText()
             print '-------------------------'
