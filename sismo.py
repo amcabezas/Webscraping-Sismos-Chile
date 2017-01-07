@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
+# -*- coding: latin-1 -*-
 from bs4 import BeautifulSoup
 import requests
 url = 'http://www.sismologia.cl/links/ultimos_sismos.html'
@@ -40,4 +40,4 @@ for col in tabla.findAll("tr",attrs={"class": "par"},limit=1):
         for ma in col.findAll("td")[5:6]:
             print f,": "+ma.string
         for loc in col.findAll("td")[-1]:
-            print 'Localidad:',loc.string.encode('utf-8'), '\nFuente:Centro Sismológico Nacional, Universidad de Chile. www.sismologia.cl'
+            print 'Localidad:',loc.string.encode('latin-1'), '\nFuente:Centro Sismológico Nacional, Universidad de Chile. www.sismologia.cl'
