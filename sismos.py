@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from bs4 import BeautifulSoup
 import requests
-url = 'http://www.sismologia.cl/links/tabla.html'
+url = 'https://www.sismologia.cl/ultimos_sismos.html'
 web = requests.get(url)
 html = BeautifulSoup(web.text,"lxml")
 tabla = html.find("table")
@@ -11,8 +11,8 @@ for row in tabla.findAll("tr", limit=4):
         pass
     else:
         a = row.findAll("a")[0:1]
-        b = row.findAll('td')[1:2]
-        c = row.findAll('td')[2:3]
+        b = row.findAll('td')[6:7]
+        c = row.findAll('td')[5]
         for fec in a:
             print("Fecha:",fec.getText())
         for lug in b:
